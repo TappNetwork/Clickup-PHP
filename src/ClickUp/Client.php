@@ -7,6 +7,7 @@ use ClickUp\Objects\TaskFinder;
 use ClickUp\Objects\Team;
 use ClickUp\Objects\TaskList;
 use ClickUp\Objects\TeamCollection;
+use ClickUp\Objects\TimeEntryCollection;
 use ClickUp\Objects\User;
 use ClickUp\Objects\Space;
 use ClickUp\Objects\Task;
@@ -99,6 +100,19 @@ class Client
 		return new TaskCollection(
 			$this,
 			$this->get("list/$listId/task", $params)['tasks']
+		);
+	}
+
+	/**
+	 * @param int $teamId
+	 * @param array $params
+	 * @return TimeEntryCollection
+	 */
+	public function timeEntries($teamId, $params)
+	{
+		return new TimeEntryCollection(
+			$this,
+			$this->get("team/$teamId/time_entries", $params)['data']
 		);
 	}
 
