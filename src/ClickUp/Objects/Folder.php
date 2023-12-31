@@ -63,6 +63,28 @@ class Folder extends AbstractObject
 	}
 
 	/**
+	 * @see https://clickup.com/api/clickupreference/operation/CreateList/
+	 * @param array $body
+	 * @return array
+	 */
+	public function createTaskList($body)
+	{
+		return $this->client()->post(
+			"folder/{$this->id()}/list",
+			$body
+		);
+	}
+
+	/**
+	 * @param int $taskListId
+	 * @return TaskList
+	 */
+	public function taskList($taskListId)
+	{
+		return $this->taskLists()->getByKey($taskListId);
+	}
+
+	/**
 	 * @return TaskListCollection
 	 */
 	public function taskLists()
