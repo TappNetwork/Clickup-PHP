@@ -166,6 +166,19 @@ class Space extends AbstractObject
 	}
 
 	/**
+	 * @see https://clickup.com/api/clickupreference/operation/CreateFolder/
+	 * @param array $body
+	 * @return array
+	 */
+	public function createFolder($body)
+	{
+		return $this->client()->post(
+			"space/{$this->id()}/folder",
+			$body
+		);
+	}
+
+	/**
 	 * @param array $array
 	 */
 	protected function fromArray($array)
