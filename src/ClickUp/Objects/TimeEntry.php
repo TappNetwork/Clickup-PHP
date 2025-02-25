@@ -167,8 +167,8 @@ class TimeEntry extends AbstractObject
 		) : null;
 		$this->billable = $array['billable'];
 		$this->start = $this->getDate($array, 'start');
-		$this->end = $this->getDate($array, 'end');
-		$this->duration = $array['duration'];
+		$this->end = isset($array['end']) ? $this->getDate($array, 'end') : null;
+		$this->duration = isset($array['duration']) ? $array['duration'] : null;
 		$this->description = $array['description'];
 		$this->tags = $array['tags'];
 		$this->source = $array['source'];
